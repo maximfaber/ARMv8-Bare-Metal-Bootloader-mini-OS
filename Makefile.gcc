@@ -1,0 +1,22 @@
+ARMGNU ?= aarch64-linux-gnu
+
+CFILES = $(wildcard *.c)
+OFILES = $(CFILES:.c=.o)
+GCCFLAGS = -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles -mstrict-align
+
+all: clean kernel8.img
+
+boot.o: boot.S
+	aarch64-linux-gnu-gcc $(GCCFLAGS) -c boot.S -o boot.o
+
+%.o: %.c
+	aarch64-linux-gnu-gcc $(GCCFLAGS) -c $< -o $@
+
+kernel8.img: boot.o $(OFILES)
+	aarch64-linux-gnu-ld -nostdlib boot.o $(OFILES) -T link.ld -o kernel8.elf
+	aarch64-linux-gnu-objcopy -O binary kernel8.elf kernel8.img
+
+clean:
+	rm -f kernel8.elf *.o *.img
+
+.PHONY: all clean
