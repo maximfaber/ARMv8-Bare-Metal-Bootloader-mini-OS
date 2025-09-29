@@ -22,7 +22,7 @@ _start:
     ldr     x1, =__bss_start
     ldr     x2, =__bss_end
 3:  cmp     x1, x2
-    b.ge    4f
+//    b.ge    4f
     str     xzr, [x1], #8       // this is kinda like a while loop checking the address                             //values agains eachother
     b       3b
 

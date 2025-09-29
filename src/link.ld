@@ -35,7 +35,8 @@ SECTIONS
     PROVIDE(_data = .);
     .data : { 
         *(.data .data.* .gnu.linkonce.d*) 
-    } //provide allows _data to be definded in the c .text kernel script(s) and not break everything
+    }
+    /*provide allows _data to be definded in the c .text kernel script(s) and not break everything */
     
     /* BSS section (uninitialized data) */
     .bss (NOLOAD) : {
