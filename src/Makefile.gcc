@@ -2,7 +2,7 @@ ARMGNU ?= aarch64-linux-gnu
 
 CFILES = $(wildcard *.c)
 OFILES = $(CFILES:.c=.o)
-GCCFLAGS = -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles -mstrict-align
+GCCFLAGS = -g -Wall -O2 -ffreestanding -nostdinc -nostdlib -nostartfiles -mstrict-align 
 
 all: clean kernel8.img
 
