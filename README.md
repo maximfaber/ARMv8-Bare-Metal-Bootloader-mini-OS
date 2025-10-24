@@ -1,4 +1,4 @@
-# ARMv8 Bare Metal Bootloader & Mini OS
+# ARMv8 Bare Metal Mini OS
 
 Lightweight bare metal bootloader and OS for a Raspberry Pi 4b.
 
